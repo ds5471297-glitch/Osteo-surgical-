@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osteo Surgical | Quality Orthopedic Implants & Instruments</title>
+    <!-- Greens Surgical जैसी प्रीमियम फॉन्ट -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #2c3e50;
+        }
+        /* टॉप बार (Greens Surgical स्टाइल) */
+        .top-header {
+            background-color: #0f2c59;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #00a896;
+        }
+        .top-header a {
+            color: #00d2c4;
+            text-decoration: none;
+        }
+        /* मुख्य नेविगेशन बार */
+        nav {
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0f2c59;
+        }
+        .logo span {
+            color: #00a896;
+        }
+        /* मुख्य बैनर (बिना किसी कंपनी फोटो के - सिर्फ टेक्स्ट और कलर) */
+        .hero-banner {
+            background: linear-gradient(rgba(15, 44, 89, 0.9), rgba(15, 44, 89, 0.95));
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero-banner h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+        .hero-banner p {
+            font-size: 1.2rem;
+            color: #a5d6a7;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+        /* सर्टिफिकेशन टैग्स */
+        .certs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .cert-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        /* कंटेनर */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #0f2c59;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+        /* उत्पाद कैटलॉग ग्रिड (Greens Surgical के सारे मुख्य प्रोडक्ट्स) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        /* फोटो की जगह प्रीमियम मेडिकल आइकॉन बॉक्स */
+        .product-image-placeholder {
+            background-color: #f0f4f8;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #0f2c59;
+            border-bottom: 2px solid #f4f6f9;
+        }
+        .product-info {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-info h3 {
+            font-size: 1.25rem;
+            color: #0f2c59;
+            margin-bottom: 10px;
+        }
+        .product-info p {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        /* इन्क्वायरी बटन */
+        .enquiry-btn {
+            background-color: #00a896;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .enquiry-btn:hover {
+            background-color: #028074;
+        }
+        /* संपर्क और फुटर सेक्शन */
+        .contact-banner {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 5px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid #00a896;
+        }
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .contact-item {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .contact-item a {
+            color: #00a896;
+            text-decoration: none;
+        }
+        footer {
+            background-color: #0f2c59;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .top-header { text-align: center; justify-content: center; gap: 10px; }
+            .hero-banner h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- टॉप बार इंफो -->
+    <div class="top-header">
+        <div>📍 Global Orthopedic Solutions Provider</div>
+        <div>📞 <a href="tel:+919899869523">+91 9899869523</a> | <a href="tel:+918849796043">+91 8849796043</a></div>
+    </div>
+
+    <!-- नेविगेशन -->
+    <nav>
+        <div class="logo">Osteo <span>Surgical</span></div>
+        <div style="font-size: 0.9rem; font-weight: bold; color: #00a896;">PRODUCTS CATALOGUE</div>
+    </nav>
+
+    <!-- कॉर्पोरेट मुख्य बैनर -->
+    <div class="hero-banner">
+        <h1>Osteo Surgical Implants</h1>
+        <p>A trusted name in the medical industry, manufacturing world-class Trauma Plates, Interlocking Nails, and Spinal Fixation Systems.</p>
+        <div class="certs">
+            <span class="cert-badge">✓ ISO 13485 Certified</span>
+            <span class="cert-badge">✓ CE Compliance</span>
+            <span class="cert-badge">✓ WHO-GMP Standards</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Our Product Categories</h2>
+        <p class="section-subtitle">Browse through our Greens-inspired high precision orthopedic range</p>
+
+        <!-- उत्पाद सूचियाँ (Greens Surgical के समान उत्पाद) -->
+        <div class="product-grid">
+            
+            <!-- 1. Trauma Bone Plates -->
+            <div class="product-card">
+                <div class="product-image-placeholder">🦴</div>
+                <div class="product-info">
+                    <h3>Trauma Bone Plates</h3>
+                    <p>Locking & Non-locking plates, DCP, and LCP systems for upper & lower extremity bone fractures.</p>
+                    <a href="https://wa.me" target="_blank" class="enquiry-btn">Get Quote</a>
+                </div>
+            </div>
+
+            <!-- 2. Interlocking Nails -->
+            <div class="product-card">
+                <div class="product-image-placeholder">🔩</div>
+                <div class="product-info">
+                    <h3>Interlocking Nails</h3>
+                    <p>Premium Titanium and SS Femur, Tibia, and Humerus interlocking nails with locking bolts.</p>
+                    <a href="https://wa.me" target="_blank" class="enquiry-btn">Get Quote</a>
+                </div>
+            </div>
+
+            <!-- 3. Spinal Fixation Systems -->
+            <div class="product-card">
+                <div class="product-image-placeholder">🧬</div>
+                <div class="product-info">
+                    <h3>Spinal Fixation Systems</h3>
+                    <p>Pedicle screws, spinal rods, cross-links, and cervical cages for advanced spine stabilization surgeries.</p>
+                    <a href="https://wa.me" target="_blank" class="enquiry-btn">Get Quote</a>
+                </div>
+            </div>
+
+            <!-- 4. Maxillofacial Implants -->
+            <div class="product-card">
+                <div class="product-image-placeholder">💀</div>
+                <div class="product-info">
+                    <h3>Maxillofacial Systems</h3>
+                    <p>Ultra-thin micro and mini plates and screws (1.5mm / 2.0mm) for cranial and facial bone surgeries.</p>
+                    <a href="https://wa.me" target="_blank" class="enquiry-btn">Get Quote</a>
+                </div>
+            </div>
+
+            <!-- 5. Cannulated Screws -->
+            <div class="product-card">
+                <div class="product-image-placeholder">🪛</div>
+                <div class="product-info">
+                    <h3>Cannulated Screws</h3>
+                    <p>4.0mm, 4.5mm, and 6.5mm/7.3mm cannulated compression screws for precise fracture fixation.</p>
