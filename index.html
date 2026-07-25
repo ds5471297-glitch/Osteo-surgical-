@@ -32,24 +32,66 @@
             color: #00d2c4;
             text-decoration: none;
         }
-        /* मुख्य नेविगेशन बार */
+        /* मुख्य नेविगेशन बार और नया लोगो डिज़ाइन */
         nav {
             background: #ffffff;
-            padding: 20px;
+            padding: 15px 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-size: 1.8rem;
+        
+        /* कोडिंग से बना प्रीमियम मेडिकल लोगो */
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .medical-logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #00a896, #00d2c4);
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 168, 150, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* लोगो के अंदर का प्लस/क्रॉस सिंबल */
+        .medical-logo-icon::before, .medical-logo-icon::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 2px;
+        }
+        .medical-logo-icon::before {
+            width: 22px;
+            height: 6px;
+        }
+        .medical-logo-icon::after {
+            width: 6px;
+            height: 22px;
+        }
+        .logo-text {
+            font-size: 1.7rem;
             font-weight: 700;
             color: #0f2c59;
+            letter-spacing: -0.5px;
+            line-height: 1;
         }
-        .logo span {
+        .logo-text span {
             color: #00a896;
+            font-weight: 400;
+            display: block;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-top: 3px;
+            text-transform: uppercase;
         }
-        /* मुख्य बैनर (बिना किसी कंपनी फोटो के - सिर्फ टेक्स्ट और कलर) */
+
+        /* मुख्य बैनर */
         .hero-banner {
             background: linear-gradient(rgba(15, 44, 89, 0.9), rgba(15, 44, 89, 0.95));
             color: white;
@@ -98,7 +140,7 @@
             color: #7f8c8d;
             margin-bottom: 40px;
         }
-        /* उत्पाद कैटलॉग ग्रिड (Greens Surgical के सारे मुख्य प्रोडक्ट्स) */
+        /* उत्पाद कैटलॉग ग्रिड */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -167,7 +209,7 @@
             background-color: #ffffff;
             padding: 40px;
             border-radius: 8px;
-            margin-top: 5px;
+            margin-top: 40px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border-top: 4px solid #00a896;
@@ -206,13 +248,16 @@
     <!-- टॉप बार इंफो -->
     <div class="top-header">
         <div>📍 Global Orthopedic Solutions Provider</div>
-        <div>📞 <a href="tel:+919899869523">+91 9899869523</a> | <a href="tel:+918849796043">+91 8849796043</a></div>
+        <div>Public Phone Desk: <a href="tel:+919899869523">+91 9899869523</a> | <a href="tel:+918849796043">+91 8849796043</a></div>
     </div>
 
-    <!-- नेविगेशन -->
+    <!-- नेविगेशन और लोगो एरिया -->
     <nav>
-        <div class="logo">Osteo <span>Surgical</span></div>
-        <div style="font-size: 0.9rem; font-weight: bold; color: #00a896;">PRODUCTS CATALOGUE</div>
+        <div class="brand-logo-container">
+            <div class="medical-logo-icon"></div>
+            <div class="logo-text">Osteo<span>Surgical</span></div>
+        </div>
+        <div style="font-size: 0.8rem; font-weight: bold; color: #00a896; letter-spacing: 1px;">PRODUCTS CATALOGUE</div>
     </nav>
 
     <!-- कॉर्पोरेट मुख्य बैनर -->
@@ -230,7 +275,7 @@
         <h2 class="section-title">Our Product Categories</h2>
         <p class="section-subtitle">Browse through our Greens-inspired high precision orthopedic range</p>
 
-        <!-- उत्पाद सूचियाँ (Greens Surgical के समान उत्पाद) -->
+        <!-- उत्पाद सूचियाँ -->
         <div class="product-grid">
             
             <!-- 1. Trauma Bone Plates -->
@@ -239,7 +284,7 @@
                 <div class="product-info">
                     <h3>Trauma Bone Plates</h3>
                     <p>Locking & Non-locking plates, DCP, and LCP systems for upper & lower extremity bone fractures.</p>
-                    <a href="https://wa.me" target="_blank" class="enquiry-btn">Get Quote</a>
+                    <a href="https://whatsapp.com" class="enquiry-btn">Get Quote</a>
                 </div>
             </div>
 
@@ -249,7 +294,7 @@
                 <div class="product-info">
                     <h3>Interlocking Nails</h3>
                     <p>Premium Titanium and SS Femur, Tibia, and Humerus interlocking nails with locking bolts.</p>
-                    <a href="https://wa.me" target="_blank" class="enquiry-btn">Get Quote</a>
+                    <a href="https://whatsapp.com" class="enquiry-btn">Get Quote</a>
                 </div>
             </div>
 
@@ -257,25 +302,3 @@
             <div class="product-card">
                 <div class="product-image-placeholder">🧬</div>
                 <div class="product-info">
-                    <h3>Spinal Fixation Systems</h3>
-                    <p>Pedicle screws, spinal rods, cross-links, and cervical cages for advanced spine stabilization surgeries.</p>
-                    <a href="https://wa.me" target="_blank" class="enquiry-btn">Get Quote</a>
-                </div>
-            </div>
-
-            <!-- 4. Maxillofacial Implants -->
-            <div class="product-card">
-                <div class="product-image-placeholder">💀</div>
-                <div class="product-info">
-                    <h3>Maxillofacial Systems</h3>
-                    <p>Ultra-thin micro and mini plates and screws (1.5mm / 2.0mm) for cranial and facial bone surgeries.</p>
-                    <a href="https://wa.me" target="_blank" class="enquiry-btn">Get Quote</a>
-                </div>
-            </div>
-
-            <!-- 5. Cannulated Screws -->
-            <div class="product-card">
-                <div class="product-image-placeholder">🪛</div>
-                <div class="product-info">
-                    <h3>Cannulated Screws</h3>
-                    <p>4.0mm, 4.5mm, and 6.5mm/7.3mm cannulated compression screws for precise fracture fixation.</p>
