@@ -6,157 +6,111 @@
     <title>Osteo Surgical | Premium Orthopedic Implants & Instruments</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-        body {
-            background-color: #f4f6f9;
-            color: #2c3e50;
-        }
-        /* टॉप बार */
-        .top-header {
-            background-color: #0f2c59;
-            color: #ffffff;
-            padding: 10px 20px;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            border-bottom: 3px solid #00a896;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+        body { background-color: #f4f6f9; color: #2c3e50; scroll-behavior: smooth; }
+        
+        /* टॉप हेडर */
+        .top-header { background-color: #0f2c59; color: #ffffff; padding: 10px 20px; font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; border-bottom: 3px solid #00a896; }
         .top-header a { color: #00d2c4; text-decoration: none; }
-
-        /* मुख्य नेविगेशन और मेनू बार */
-        nav {
-            background: #ffffff;
-            padding: 15px 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+        
+        /* नेविगेशन बार */
+        nav { background: #ffffff; padding: 15px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; position: sticky; top: 0; z-index: 1000; }
         .brand-logo-container { display: flex; align-items: center; gap: 12px; }
-        .medical-logo-icon {
-            width: 42px; height: 42px;
-            background: linear-gradient(135deg, #00a896, #00d2c4);
-            border-radius: 10px; position: relative;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .medical-logo-icon::before, .medical-logo-icon::after {
-            content: ''; position: absolute; background: white; border-radius: 2px;
-        }
+        .medical-logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, #00a896, #00d2c4); border-radius: 10px; position: relative; display: flex; align-items: center; justify-content: center; }
+        .medical-logo-icon::before, .medical-logo-icon::after { content: ''; position: absolute; background: white; border-radius: 2px; }
         .medical-logo-icon::before { width: 22px; height: 6px; }
         .medical-logo-icon::after { width: 6px; height: 22px; }
-        
         .logo-text { font-size: 1.7rem; font-weight: 700; color: #0f2c59; line-height: 1; }
         .logo-text span { color: #00a896; font-weight: 400; display: block; font-size: 0.85rem; letter-spacing: 2px; margin-top: 3px; text-transform: uppercase; }
-
-        /* मेनू बार लिंक्स */
+        
+        /* मेनू लिंक्स */
         .menu-links { display: flex; gap: 20px; list-style: none; }
-        .menu-links a { text-decoration: none; color: #0f2c59; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
-        .menu-links a:hover { color: #00a896; }
-
-        /* सर्च बार डिजाइन */
+        .menu-links a { text-decoration: none; color: #0f2c59; font-weight: 500; font-size: 0.95rem; cursor: pointer; }
+        .menu-links a:hover, .menu-links a.active { color: #00a896; }
+        
+        /* सर्च बार */
         .search-container { position: relative; }
-        .search-input {
-            padding: 8px 15px; width: 250px; border: 2px solid #e2e8f0;
-            border-radius: 50px; outline: none; font-size: 0.9rem; transition: all 0.3s;
-        }
+        .search-input { padding: 8px 15px; width: 250px; border: 2px solid #e2e8f0; border-radius: 50px; outline: none; font-size: 0.9rem; transition: all 0.3s; }
         .search-input:focus { border-color: #00a896; width: 280px; }
-
-        /* मुख्य बैनर */
-        .hero-banner {
-            background: linear-gradient(rgba(15, 44, 89, 0.9), rgba(15, 44, 89, 0.95));
-            color: white; padding: 60px 20px; text-align: center;
-        }
+        
+        /* बैनर */
+        .hero-banner { background: linear-gradient(rgba(15, 44, 89, 0.9), rgba(15, 44, 89, 0.95)); color: white; padding: 60px 20px; text-align: center; }
         .hero-banner h1 { font-size: 2.8rem; margin-bottom: 15px; }
         .hero-banner p { font-size: 1.2rem; color: #a5d6a7; max-width: 700px; margin: 0 auto; }
-
-        /* प्रोडक्ट्स ग्रिड */
+        
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .section-title { text-align: center; font-size: 2.2rem; color: #0f2c59; margin-bottom: 40px; text-transform: uppercase; }
         
+        /* About Us बॉक्स */
+        .about-box { background-color: #ffffff; padding: 30px; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #0f2c59; scroll-margin-top: 100px; }
+        .about-box h2 { color: #0f2c59; margin-bottom: 15px; }
+        .about-box p { color: #555; line-height: 1.6; }
+        
+        .section-title { text-align: center; font-size: 2.2rem; color: #0f2c59; margin-bottom: 10px; text-transform: uppercase; scroll-margin-top: 100px; }
+        .section-subtitle { text-align: center; color: #7f8c8d; margin-bottom: 40px; }
+        
+        /* प्रोडक्ट्स ग्रिड */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-        .product-card {
-            background: #ffffff; border-radius: 8px; overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
-            transition: all 0.3s ease; display: flex; flex-direction: column;
-        }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        
-        /* असली फोटो अपलोड करने का बॉक्स */
-        .product-image-box {
-            background-color: #ffffff; height: 230px; display: flex;
-            align-items: center; justify-content: center; overflow: hidden;
-            padding: 10px; border-bottom: 2px solid #f4f6f9;
-        }
+        .product-card { background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
+        .product-image-box { background-color: #ffffff; height: 230px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 10px; border-bottom: 2px solid #f4f6f9; }
         .product-image-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
-
-        .product-info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .product-info h3 { font-size: 1.2rem; color: #0f2c59; margin-bottom: 15px; text-transform: capitalize; }
         
-        .enquiry-btn {
-            background-color: #00a896; color: white; padding: 10px 20px;
-            border-radius: 4px; text-decoration: none; font-weight: 500; display: inline-block;
-        }
+        .product-info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-info h3 { font-size: 1.2rem; color: #0f2c59; margin-bottom: 15px; }
+        .enquiry-btn { background-color: #00a896; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: 500; display: inline-block; }
         .enquiry-btn:hover { background-color: #028074; }
-
-        /* संपर्क डेस्क */
-        .contact-banner {
-            background-color: #ffffff; padding: 40px; border-radius: 8px;
-            margin-top: 40px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #00a896;
-        }
+        
+        /* कांटेक्ट बैनर */
+        .contact-banner { background-color: #ffffff; padding: 40px; border-radius: 8px; margin-top: 40px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #00a896; scroll-margin-top: 100px; }
         .contact-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
         .contact-item { font-size: 1.1rem; font-weight: 500; }
         .contact-item a { color: #00a896; text-decoration: none; }
         
         footer { background-color: #0f2c59; color: #bdc3c7; text-align: center; padding: 25px; margin-top: 50px; font-size: 0.9rem; }
+        .no-results { display: none; text-align: center; font-size: 1.2rem; color: #7f8c8d; margin-top: 30px; width: 100%; grid-column: 1 / -1; }
     </style>
 </head>
 <body>
 
-    <!-- टॉप बार इंफो -->
-    <div class="top-header">
+    <!-- टॉप हेडर -->
+    <div class="top-header" id="home-top">
         <div>📍 Global Orthopedic Solutions Provider</div>
         <div>Public Phone Desk: <a href="tel:+919899869523">+91 9899869523</a> | <a href="tel:+918849796043">+91 8849796043</a></div>
     </div>
 
-    <!-- नेविगेशन, मेनू बार और सर्च बार -->
+    <!-- नेविगेशन और सुधारे गए लिंक्स -->
     <nav>
         <div class="brand-logo-container">
             <div class="medical-logo-icon"></div>
             <div class="logo-text">Osteo<span>Surgical</span></div>
         </div>
-        
-        <!-- मेनू बार -->
         <ul class="menu-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="#home-top">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
             <li><a href="#products">Products</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
         </ul>
-
-        <!-- सर्च बार -->
         <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search products...">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search products...">
         </div>
     </nav>
 
-    <!-- कॉर्पोरेट मुख्य बैनर -->
     <div class="hero-banner">
         <h1>Osteo Surgical Implants</h1>
-        <p>Manufacturing world-class Trauma Plates, Interlocking Nails, and Spinal Fixation Systems according to international medical standards.</p>
+        <p>Manufacturing world-class Trauma Plates, Interlocking Nails, and Spinal Fixation Systems.</p>
     </div>
 
-    <div class="container" id="products">
-        <h2 class="section-title">Our Product Portfolio</h2>
+    <div class="container">
+        <!-- About Us सेक्शन -->
+        <div class="about-box" id="about-us">
+            <h2>About Osteo Surgical</h2>
+            <p>Osteo Surgical is a premier provider of high-grade orthopedic implants and medical instruments. Inspired by global industry leaders, we specialize in manufacturing premium Trauma Bone Plates, Interlocking Nails, and Spine Fixation Systems. Our products comply with ISO and international medical standards to ensure precision, durability, and patient safety.</p>
+        </div>
 
-        <div class="product-grid">
+        <h2 class="section-title" id="products">Our Product Portfolio</h2>
+        <p class="section-subtitle">Browse through all our 8 high precision categories</p>
+
+        <!-- प्रोडक्ट्स ग्रिड -->
+        <div class="product-grid" id="productGrid">
             
             <!-- 1. Trauma Plates -->
             <div class="product-card">
@@ -208,13 +162,3 @@
                 <div class="product-image-box"><img src="image6.jpg" alt="Cranio Maxillofacial"></div>
                 <div class="product-info">
                     <h3>6. Cranio Maxillofacial</h3>
-                    <a href="mailto:ds5471297@://gmail.com for Cranio Maxillofacial" class="enquiry-btn">Get Quote Via Email</a>
-                </div>
-            </div>
-
-            <!-- 7. Arthroplasty -->
-            <div class="product-card">
-                <div class="product-image-box"><img src="image7.jpg" alt="Arthroplasty"></div>
-                <div class="product-info">
-                    <h3>7. Arthroplasty (Implants)</h3>
-                    <a href="mailto:ds5471297@://gmail.com for Arthroplasty" class="enquiry-btn">Get Quote Via Email</a>
